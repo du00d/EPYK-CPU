@@ -59,7 +59,7 @@ module control#(
     )(input [DATA_SIZE-1:0] instruction,
       output [2:0] Rn,Rm,
       input [DATA_SIZE-1:0] R_outn,R_outm,r_in_data,r_out_data,r_out_address,
-      output reg mcu_op,reg mcu_en;
+      output reg mcu_op, mcu_en
       );
     wire [3:0] operation;
     wire [6:0] Rn,Rm;
