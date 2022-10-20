@@ -25,11 +25,13 @@ module register#(parameter SIZE = 16)(
     output reg [SIZE-1:0] q,
     input [SIZE-1:0] d,
     input reset,
+    input enable,
     input clock
     );
     always@(posedge clock)
         if(reset)
             q<=0;
         else
-            q<=d;
+            if(enable)
+                q<=d;
 endmodule
