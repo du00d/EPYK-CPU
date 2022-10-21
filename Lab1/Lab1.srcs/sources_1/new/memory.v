@@ -25,8 +25,6 @@ parameter MEM_INIT_FILE = ""
     reg [DATA_SIZE-1:0] mem [2 ** ADDRESS_LENGTH -1 : 0];
     assign data_out1 = mem[address];
     assign data_out2 = mem[fetch_address];
-//    assign data_out = (read)? mem[address] : {(DATA_SIZE){1'bz}};
-    integer i;
     always@(posedge clock) begin
         if(write)
             mem[address] = data_in;

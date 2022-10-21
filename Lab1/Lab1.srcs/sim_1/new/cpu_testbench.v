@@ -41,7 +41,7 @@ module cpu_testbench(
     clock=0;
     #10 reset=1;
     #10 reset=0;
-    #100 $finish;
+    #1000 $finish;
     end
     always  #2 clock=~clock; 
 endmodule
