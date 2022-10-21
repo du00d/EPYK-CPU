@@ -44,14 +44,15 @@ module CPU#(
     wire [DATA_SIZE-1:0] PC_next;
     wire [DATA_SIZE-1:0] instruction;
     wire PC_enable;
-    register PC(PC_out,PC_next,,PC_enable,clock);
+    register #(.RESET_VAL(31)) PC(PC_out,PC_next,reset,PC_enable,clock);
     fetch_unit FU(PC_out,fetch_out,PC_address,instruction);
     
     wire mcu_op,mcu_en;
     wire [DATA_SIZE-1:0] r_in_data,r_out_data,r_out_address;
     memory_controller MCU(mcu_op,mcu_en,r_out_address,r_out_data,mem_out,r_in_data,mem_in,write_enable_memtoreg,write_enable_mem,mem_address);
     
-    control controller(instruction,reg_select1,reg_select2,reg_out1,reg_out2,mcu_op,mcu_en,r_in_data,r_out_data,r_out_address,write_enable1,write_enable2,reg_in1,reg_in2);
+    control controller(instruction,reg_select1,reg_select2,reg_out1,reg_out2,mcu_op,mcu_en,r_in_data,r_out_data,r_out_address,write_enable1,write_enable2,reg_in1,reg_in2,
+        PC_out,PC_next,PC_enable);
 endmodule
 
 module control#(
@@ -64,7 +65,10 @@ module control#(
       input [DATA_SIZE-1:0] r_in_data,
       output reg [DATA_SIZE-1:0] r_out_data,r_out_address,
       output reg Rn_write,Rm_write,
-      output reg [DATA_SIZE-1:0] Rn_in,Rm_in
+      output reg [DATA_SIZE-1:0] Rn_in,Rm_in,
+      input [DATA_SIZE-1:0] PC_out,
+      output reg [DATA_SIZE-1:0] PC_next,
+      output reg PC_enable
       );
     wire [3:0] operation;
     wire [6:0] Rn,Rm;
@@ -81,6 +85,8 @@ module control#(
         Rm_write<=0;
         Rn_in<=0;
         Rm_in<=0;
+        PC_next = PC_out+1;
+        PC_enable=1;
     end
     case(operation)
         4'b1011: begin
