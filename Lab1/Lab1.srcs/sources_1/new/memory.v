@@ -10,7 +10,8 @@
 
 module memory#(
 parameter DATA_SIZE = 16,
-parameter ADDRESS_LENGTH = 12
+parameter ADDRESS_LENGTH = 12,
+parameter MEM_INIT_FILE = ""
 )(
     input [ADDRESS_LENGTH-1:0] address,
     input [ADDRESS_LENGTH-1:0] fetch_address,
@@ -27,12 +28,12 @@ parameter ADDRESS_LENGTH = 12
 //    assign data_out = (read)? mem[address] : {(DATA_SIZE){1'bz}};
     integer i;
     always@(posedge clock) begin
-        if(reset) begin
-//            for(i=0;i<2**ADDRESS_LENGTH-1;i=i+1)
-//                mem[i]=0;
-                //program starts at 0b11111
-        end
-        else if(write)
+        if(write)
             mem[address] = data_in;
+    end
+    initial begin
+        if (MEM_INIT_FILE != "") begin
+            $readmemb(MEM_INIT_FILE, mem);
+        end
     end
 endmodule

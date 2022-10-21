@@ -22,7 +22,8 @@
 
 module CPU#(
     parameter DATA_SIZE = 16,
-    parameter ADDRESS_LENGTH = 12
+    parameter ADDRESS_LENGTH = 12,
+    parameter MEM_INIT_FILE = ""
     )(input clock,reset,
       output [DATA_SIZE-1:0] PC_out,
       output [DATA_SIZE*6-1:0] R_allout
@@ -40,7 +41,8 @@ module CPU#(
     wire [DATA_SIZE-1:0] fetch_out;
     wire [ADDRESS_LENGTH-1:0] PC_address;
     memory mem(mem_address,PC_address,mem_in,mem_out,fetch_out,write_enable_mem,clock,reset);
-
+    defparam mem.MEM_INIT_FILE = MEM_INIT_FILE;
+    
     wire [DATA_SIZE-1:0] PC_next;
     wire [DATA_SIZE-1:0] instruction;
     wire PC_enable;
@@ -103,6 +105,9 @@ module control#(
             Rm_write<=0;
             r_out_address <=R_outm;
             Rn_in<=r_in_data;
+        end
+        4'b0010 : begin
+            PC_next=instruction[11:0];
         end
      endcase
      end
