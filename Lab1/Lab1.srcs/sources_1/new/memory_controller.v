@@ -24,7 +24,7 @@ module memory_controller#(
     parameter DATA_SIZE = 16,
     parameter ADDRESS_LENGTH = 12
     )(
-    input op, //0==1011, 1=1100
+    input op, //0==1011, 1=1100 (write)(0) / (read)(1)
     input enable,//do or not
     input [DATA_SIZE-1:0] R_out_adress,
     input [DATA_SIZE-1:0] R_out_data,

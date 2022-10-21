@@ -30,7 +30,7 @@ module register#(parameter SIZE = 16)(
     );
     always@(posedge clock)
         if(reset)
-            q<=0;
+            q<=31;
         else
             if(enable)
                 q<=d;

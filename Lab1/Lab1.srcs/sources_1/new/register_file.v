@@ -31,7 +31,8 @@ module register_file#(
     input [DATA_SIZE-1:0] reg_in2,
     output [DATA_SIZE-1:0] reg_out2,
     input reset,
-    input clock
+    input clock,
+    output [DATA_SIZE*6-1:0] R_allout
     );
     wire [5:0][DATA_SIZE-1:0] R_out;
     wire [5:0][DATA_SIZE-1:0] R_in;
@@ -42,6 +43,7 @@ module register_file#(
     genvar i;
     generate for(i=0;i<6;i=i+1) begin
         register R(R_out[i],R_in[i],reset,R_enable[i],clock);
+        assign R_allout[(i+1)*DATA_SIZE-1:i*DATA_SIZE] = R_out[i];
     end
     endgenerate
     
