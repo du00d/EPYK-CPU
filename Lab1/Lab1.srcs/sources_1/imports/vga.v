@@ -89,10 +89,15 @@ vga_controller_640_60 vga_controller(
     .vcounter(vga_vcnt),
     .blank(vga_blank)
 );
+reg [10:0] addr;
+wire [7:0] data;
+wire [16*6-1:0] R;
 
 // Generate figure to be displayed
 // Decide the color for the current pixel at index (hcnt, vcnt).
 // This example displays an white square at the center of the screen with a colored checkerboard background.
+font_rom(pixel_clk, addr, data);
+
 always @(*) begin
     // Set pixels to black during Sync. Failure to do so will result in dimmed colors or black screens.
     if (vga_blank) begin 
@@ -102,17 +107,318 @@ always @(*) begin
     end
     else begin  // Image to be displayed
         // Default values for the checkerboard background
-        VGA_R = vga_vcnt[6:3];
-        VGA_G = vga_hcnt[6:3];
-        VGA_B = vga_vcnt[6:3] + vga_hcnt[6:3];
-        
-        // White square at the center
-        if ((vga_hcnt >= 300 && vga_hcnt <= 340) &&
-        	(vga_vcnt >= 220 && vga_vcnt <= 260)) begin
+        VGA_R = 8'b11111111;
+        VGA_G = 8'b11111111;
+        VGA_B = 8'b11111111;
+        if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 50 && vga_vcnt <= 66)) begin
+        	addr[10:4] = 7'h52;
+        	addr[3:0] = vga_vcnt - 50;
+        	//addr[vga_vcnt - 50;
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
 			VGA_R = 4'hf;
 			VGA_G = 4'hf;
 			VGA_B = 4'hf;
+			end
         end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 50 && vga_vcnt <= 66)) begin
+        	addr[10:4] = 7'h30;
+        	addr[3:0] = vga_vcnt - 50;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 70 && vga_hcnt <= 78 ) &&
+        	(vga_vcnt >= 50 && vga_vcnt <= 66)) begin
+        	addr[10:4] = 7'h3a;
+        	addr[3:0] = vga_vcnt - 50;
+        	//addr[vga_vcnt - 50;
+			if (data[78-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 80 && vga_hcnt <= 88 ) &&
+        	(vga_vcnt >= 50 && vga_vcnt <= 66)) begin
+        	addr[10:4] = 7'h30;
+        	addr[3:0] = vga_vcnt - 50;
+        	//addr[vga_vcnt - 50;
+			if (data[88-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+         if ((vga_hcnt >= 90 && vga_hcnt <= 98 ) &&
+        	(vga_vcnt >= 50 && vga_vcnt <= 66)) begin
+        	addr[10:4] = 7'h78;
+        	addr[3:0] = vga_vcnt - 50;
+        	//addr[vga_vcnt - 50;
+			if (data[98-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        
+        
+        // R1
+        
+        
+         if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 70 && vga_vcnt <= 86)) begin
+        	addr[10:4] = 7'h52;
+        	addr[3:0] = vga_vcnt - 70;
+        	//addr[vga_vcnt - 50;
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 70 && vga_vcnt <= 86)) begin
+        	addr[10:4] = 7'h31;
+        	addr[3:0] = vga_vcnt - 70;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+       
+        // R2
+        
+         if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 90 && vga_vcnt <= 106)) begin
+        	addr[10:4] = 7'h52;
+        	addr[3:0] = vga_vcnt - 90;
+        	
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 90 && vga_vcnt <= 106)) begin
+        	addr[10:4] = 7'h32;
+        	addr[3:0] = vga_vcnt - 90;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+
+        
+         // R3
+        
+         if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 110 && vga_vcnt <= 126)) begin
+        	addr[10:4] = 7'h52;
+        	addr[3:0] = vga_vcnt - 110;
+        	//addr[vga_vcnt - 50;
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 110 && vga_vcnt <= 126)) begin
+        	addr[10:4] = 7'h33;
+        	addr[3:0] = vga_vcnt - 110;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        
+        
+        // R4
+        
+         if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 130 && vga_vcnt <= 146)) begin
+        	addr[10:4] = 7'h52;
+        	addr[3:0] = vga_vcnt - 130;
+        	//addr[vga_vcnt - 50;
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 130 && vga_vcnt <= 146)) begin
+        	addr[10:4] = 7'h34;
+        	addr[3:0] = vga_vcnt - 130;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        
+        
+         // R5
+        
+         if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 150 && vga_vcnt <= 166)) begin
+        	addr[10:4] = 7'h52;
+        	addr[3:0] = vga_vcnt - 150;
+        	//addr[vga_vcnt - 50;
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 150 && vga_vcnt <= 166)) begin
+        	addr[10:4] = 7'h35;
+        	addr[3:0] = vga_vcnt - 150;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        // PC
+        
+         if ((vga_hcnt >= 50 && vga_hcnt <= 58 ) &&
+        	(vga_vcnt >= 170 && vga_vcnt <= 186)) begin
+        	addr[10:4] = 7'h50;
+        	addr[3:0] = vga_vcnt - 170;
+        	//addr[vga_vcnt - 50;
+			if (data[58-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
+        if ((vga_hcnt >= 60 && vga_hcnt <= 68 ) &&
+        	(vga_vcnt >= 170 && vga_vcnt <= 186)) begin
+        	addr[10:4] = 7'h43;
+        	addr[3:0] = vga_vcnt - 170;
+        	//addr[vga_vcnt - 50;
+			if (data[68-vga_hcnt] == 1) begin
+			VGA_R = 4'h0;
+			VGA_G = 4'h0;
+			VGA_B = 4'h0;
+			end
+			else begin
+			VGA_R = 4'hf;
+			VGA_G = 4'hf;
+			VGA_B = 4'hf;
+			end
+        end
+        
     end
 end
 
