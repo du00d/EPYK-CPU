@@ -120,9 +120,15 @@ module control#(
       input continue
       );
     wire [3:0] operation;
+    
     assign operation = instruction[15:12];
     assign Rn = instruction[8:6];
-    assign Rm = instruction[2:0];    
+    assign Rm = instruction[2:0];
+    
+    wire div_sign;
+    assign div_sign =Rm_out[DATA_SIZE-1];
+    reg [DATA_SIZE-1:0] divtmp; 
+        
     always@(*) begin
     //default:
     begin
@@ -192,7 +198,7 @@ module control#(
         end
         4'b1001 : begin //mov Rn,num
             Rn_write=1;
-            Rn_in = instruction[5:0];
+            Rn_in = $signed(instruction[5:0]);
         end
         4'b1010 : begin //mov Rn,Rm
             Rn_write=1;
@@ -211,17 +217,23 @@ module control#(
             mcu_en = 1;
             Rn_write=1;
             Rm_write=0;
-            r_out_address =Rn_out;
+            r_out_address =Rm_out;
             Rn_in=r_in_data;
         end
-        4'b1101 : begin //special 1
-        
+        4'b1101 : begin //special 1 : SMULT
+            Rn_write=1;
+            Rn_in=Rn_out*Rm_out;
         end
-        4'b1110 : begin //special 2
-        
+        4'b1110 : begin //special 2 SDIV
+            Rn_write=1;
+            divtmp=Rn_out/(div_sign)?(-Rm_out):Rm_out;
+            Rn_in=(div_sign)?-divtmp:divtmp;
         end
-        4'b1111 : begin //special 3
-        
+        4'b1111 : begin //special 3 inc [Rn]
+            mcu_op = 0;
+            mcu_en = 1;
+            r_out_address =Rn_out;
+            r_out_data=r_in_data+1;
         end
         
      endcase
