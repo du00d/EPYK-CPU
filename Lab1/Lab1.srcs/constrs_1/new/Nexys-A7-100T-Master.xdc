@@ -247,5 +247,5 @@ set_property PACKAGE_PIN V14 [get_ports {PC_out[13]}]
 set_property PACKAGE_PIN V12 [get_ports {PC_out[14]}]
 set_property PACKAGE_PIN V11 [get_ports {PC_out[15]}]
 
-set_property PACKAGE_PIN U11 [get_ports user_clock]
+set_property PACKAGE_PIN N17 [get_ports user_clock]
 set_property IOSTANDARD LVCMOS33 [get_ports user_clock]

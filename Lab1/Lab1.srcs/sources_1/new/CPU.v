@@ -23,7 +23,7 @@ module topCPU#(
     parameter DATA_SIZE = 16,
     parameter ADDRESS_LENGTH = 12,
     parameter MEM_INIT_FILE = ""
-    )(input sys_clock,user_clock,reset,
+    )(input sys_clock,user_clock,reset,continue,
       output [DATA_SIZE-1:0] PC_out/*,*/
       /*output [DATA_SIZE*6-1:0] R_allout*/);
       
@@ -32,14 +32,14 @@ module topCPU#(
       always@(posedge sys_clock)
         fake_clock <= user_clock;
       
-    CPU epyc(fake_clock,reset,PC_out,/*R_allout*/);
+    CPU epyc(fake_clock,reset,continue,PC_out,/*R_allout*/);
     defparam epyc.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt"; 
 endmodule
 module CPU_wrapper#(
     parameter DATA_SIZE = 16,
     parameter ADDRESS_LENGTH = 12,
     parameter MEM_INIT_FILE = ""
-    )(input sys_clock,user_clock,reset,
+    )(input sys_clock,user_clock,reset,continue,
       output [DATA_SIZE-1:0] PC_out,
       output [DATA_SIZE*6-1:0] R_allout);
       
@@ -48,14 +48,14 @@ module CPU_wrapper#(
       always@(posedge sys_clock)
         fake_clock <= user_clock;
       
-    CPU epyc(fake_clock,reset,PC_out,R_allout);
+    CPU epyc(fake_clock,reset,continue,PC_out,R_allout);
     defparam epyc.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt"; 
 endmodule
 module CPU#(
     parameter DATA_SIZE = 16,
     parameter ADDRESS_LENGTH = 12,
     parameter MEM_INIT_FILE = ""
-    )(input clock,reset,
+    )(input clock,reset,continue,
       output [DATA_SIZE-1:0] PC_out,
       output [DATA_SIZE*6-1:0] R_allout
     );
@@ -94,7 +94,8 @@ module CPU#(
     control controller(instruction,reg_select1,reg_select2,reg_out1,reg_out2,mcu_op,mcu_en,r_in_data,r_out_data,r_out_address,write_enable1,write_enable2,reg_in1,reg_in2,
         PC_out,PC_next,PC_enable,
         A,B,ALUOp,C,
-        cmp_reg,cmp_next);
+        cmp_reg,cmp_next,
+        continue);
 endmodule
 
 module control#(
@@ -115,7 +116,8 @@ module control#(
       output reg [DATA_SIZE-1:0] B,
       output reg [1:0] ALUOp,
       input [DATA_SIZE-1:0] C,
-      input cmp_reg, output reg cmp_next 
+      input cmp_reg, output reg cmp_next,
+      input continue
       );
     wire [3:0] operation;
     assign operation = instruction[15:12];
@@ -141,7 +143,8 @@ module control#(
     end
     case(operation)
         4'b0000: begin
-            PC_next = PC_out;
+            if(~continue)
+                PC_next = PC_out;
         end
         4'b0001: begin
             Rm_write=1;
