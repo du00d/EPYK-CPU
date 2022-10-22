@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Fri Oct 21 18:25:52 2022
+| Date         : Fri Oct 21 20:59:54 2022
 | Host         : ECE-PHO115-17 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     6 |
-|    Minimum number of control sets                        |     6 |
+| Total control sets                                       |    46 |
+|    Minimum number of control sets                        |    46 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    34 |
+| Unused register locations in slices containing registers |    46 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     6 |
-| >= 0 to < 4        |     3 |
+| Total control sets |    46 |
+| >= 0 to < 4        |     4 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     2 |
 | >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     0 |
+| >= 16              |    39 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,27 +58,67 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              25 |            8 |
+| No           | No                    | No                     |              26 |           13 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |               2 |            2 |
-| Yes          | No                    | No                     |              11 |            5 |
+| No           | Yes                   | No                     |             117 |           71 |
+| Yes          | No                    | No                     |              11 |            3 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | Yes                   | No                     |              96 |           49 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+-------------------------+--------------------+------------------+----------------+
-|     Clock Signal     |      Enable Signal      |  Set/Reset Signal  | Slice Load Count | Bel Load Count |
-+----------------------+-------------------------+--------------------+------------------+----------------+
-|  pixel_clk           |                         | vga_controller/HS0 |                1 |              1 |
-|  pixel_clk           |                         | vga_controller/VS0 |                1 |              1 |
-|  CLK100MHZ_IBUF_BUFG |                         |                    |                1 |              2 |
-|  vga_controller/E[0] |                         |                    |                4 |             11 |
-|  pixel_clk           | vga_controller/vcounter |                    |                5 |             11 |
-|  pixel_clk           |                         |                    |                3 |             12 |
-+----------------------+-------------------------+--------------------+------------------+----------------+
++----------------------+-------------------------------------+--------------------+------------------+----------------+
+|     Clock Signal     |            Enable Signal            |  Set/Reset Signal  | Slice Load Count | Bel Load Count |
++----------------------+-------------------------------------+--------------------+------------------+----------------+
+|  BTNL_IBUF_BUFG      |                                     |                    |                1 |              1 |
+|  pixel_clk           |                                     | vga_controller/HS0 |                1 |              1 |
+|  pixel_clk           |                                     | vga_controller/VS0 |                1 |              1 |
+|  CLK100MHZ_IBUF_BUFG |                                     |                    |                1 |              2 |
+|  vga_controller/E[0] |                                     |                    |                4 |             11 |
+|  pixel_clk           | vga_controller/vcounter[10]_i_1_n_0 |                    |                3 |             11 |
+|  pixel_clk           |                                     |                    |                7 |             12 |
+|  BTNL_IBUF_BUFG      | epyc/PC/E[0]                        | res_IBUF           |                7 |             16 |
+|  BTNL_IBUF_BUFG      | epyc/PC/q_reg[11]_5[0]              | res_IBUF           |                8 |             16 |
+|  BTNL_IBUF_BUFG      | epyc/PC/q_reg[11]_4[0]              | res_IBUF           |                8 |             16 |
+|  BTNL_IBUF_BUFG      | epyc/PC/q_reg[11]_10[0]             | res_IBUF           |                9 |             16 |
+|  BTNL_IBUF_BUFG      | epyc/PC/q_reg[11]_3[0]              | res_IBUF           |               11 |             16 |
+|  BTNL_IBUF_BUFG      | epyc/PC/q_reg[11]_6[0]              | res_IBUF           |                6 |             16 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_12_0    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_4    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_1    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_1    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_5    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_6    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_0    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_10_0    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_13_1    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_3    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_12_3    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_12_2    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_0    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_12_1    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_10_3    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_13_2    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_2    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_4    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_6    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_8    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_2    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_3    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_7    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_10_2    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_12_4    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_12_5    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_13_0    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_14_7    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_13_3    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_10_1    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_5    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      | epyc/PC/mem_reg_0_127_0_0_i_15_9    |                    |               16 |             64 |
+|  BTNL_IBUF_BUFG      |                                     | res_IBUF           |               69 |            115 |
++----------------------+-------------------------------------+--------------------+------------------+----------------+
 
 

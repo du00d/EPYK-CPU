@@ -18,7 +18,10 @@ proc create_report { reportName command } {
   }
 }
 set_param chipscope.maxJobs 3
+set_param synth.incrementalSynthesisCache C:/Users/bupochen/AppData/Local/Temp/.Xil_bupochen/Vivado-12252-ECE-PHO115-17/incrSyn
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -31,7 +34,14 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/bupochen/EC551/Lab1/Lab1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/ALU.v
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/fetch_unit.v
   C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/font_rom.v
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/memory.v
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/memory_controller.v
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/register.v
+  C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/register_file.v
   C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
