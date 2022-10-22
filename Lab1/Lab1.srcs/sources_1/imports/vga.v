@@ -95,12 +95,14 @@ endmodule
 module top(
     input wire CLK100MHZ,
     input wire res,
-    input wire BTNL,
+    input wire user_clock,
+    input wire continue,
     output reg [3:0] VGA_R,
     output reg [3:0] VGA_G,
     output reg [3:0] VGA_B,
     output wire VGA_HS,
-    output wire VGA_VS
+    output wire VGA_VS,
+    output wire [15:0] PC_out
     );
 
 reg pclk_div_cnt;
@@ -129,8 +131,7 @@ vga_controller_640_60 vga_controller(
 reg [10:0] addr;
 wire [7:0] data;
 wire [16*6-1:0] R;
-wire [15:0] PC_out;
-CPU epyc(BTNL, res, PC_out, R);
+CPU_wrapper epyc(CLK100MHZ, user_clock, res, continue, PC_out, R);
 
 // Generate figure to be displayed
 // Decide the color for the current pixel at index (hcnt, vcnt).

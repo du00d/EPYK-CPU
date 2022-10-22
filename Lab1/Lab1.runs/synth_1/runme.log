@@ -15,9 +15,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11236 
+INFO: Helper process launched with PID 10932 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 809.887 ; gain = 178.324
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 809.723 ; gain = 178.152
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:95]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller_640_60' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:8]
@@ -31,10 +31,14 @@ INFO: [Synth 8-6157] synthesizing module 'vga_controller_640_60' [C:/Users/bupoc
 	Parameter VSP bound to: 484 - type: integer 
 	Parameter SPP bound to: 0 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'vga_controller_640_60' (1#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:8]
-INFO: [Synth 8-6157] synthesizing module 'CPU' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'CPU_wrapper' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:38]
 	Parameter DATA_SIZE bound to: 16 - type: integer 
 	Parameter ADDRESS_LENGTH bound to: 12 - type: integer 
 	Parameter MEM_INIT_FILE bound to: (null) - type: string 
+INFO: [Synth 8-6157] synthesizing module 'CPU' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:54]
+	Parameter DATA_SIZE bound to: 16 - type: integer 
+	Parameter ADDRESS_LENGTH bound to: 12 - type: integer 
+	Parameter MEM_INIT_FILE bound to: C:/Users/bupochen/EC551/Lab1/meminit.txt - type: string 
 INFO: [Synth 8-6157] synthesizing module 'register_file' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/register_file.v:23]
 	Parameter DATA_SIZE bound to: 16 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'register' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/register.v:24]
@@ -51,7 +55,8 @@ INFO: [Synth 8-6155] done synthesizing module 'ALU' (5#1) [C:/Users/bupochen/EC5
 INFO: [Synth 8-6157] synthesizing module 'memory' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/memory.v:11]
 	Parameter DATA_SIZE bound to: 16 - type: integer 
 	Parameter ADDRESS_LENGTH bound to: 12 - type: integer 
-	Parameter MEM_INIT_FILE bound to: (null) - type: string 
+	Parameter MEM_INIT_FILE bound to: C:/Users/bupochen/EC551/Lab1/meminit.txt - type: string 
+INFO: [Synth 8-3876] $readmem data file 'C:/Users/bupochen/EC551/Lab1/meminit.txt' is read successfully [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/memory.v:34]
 INFO: [Synth 8-6155] done synthesizing module 'memory' (6#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/memory.v:11]
 INFO: [Synth 8-6157] synthesizing module 'register__parameterized0' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/register.v:24]
 	Parameter SIZE bound to: 16 - type: integer 
@@ -65,18 +70,19 @@ INFO: [Synth 8-6157] synthesizing module 'memory_controller' [C:/Users/bupochen/
 	Parameter DATA_SIZE bound to: 16 - type: integer 
 	Parameter ADDRESS_LENGTH bound to: 12 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'memory_controller' (8#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/memory_controller.v:23]
-INFO: [Synth 8-6157] synthesizing module 'control' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:69]
+INFO: [Synth 8-6157] synthesizing module 'control' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:101]
 	Parameter DATA_SIZE bound to: 16 - type: integer 
 	Parameter ADDRESS_LENGTH bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'control' (9#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:69]
-INFO: [Synth 8-6155] done synthesizing module 'CPU' (10#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'control' (9#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:101]
+INFO: [Synth 8-6155] done synthesizing module 'CPU' (10#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:54]
+INFO: [Synth 8-6155] done synthesizing module 'CPU_wrapper' (11#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/CPU.v:38]
 INFO: [Synth 8-6157] synthesizing module 'font_rom' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/font_rom.v:8]
-INFO: [Synth 8-6155] done synthesizing module 'font_rom' (11#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/font_rom.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'font_rom' (12#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/font_rom.v:8]
 INFO: [Synth 8-6157] synthesizing module 'map4' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:58]
 INFO: [Synth 8-6157] synthesizing module 'map' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:68]
-INFO: [Synth 8-6155] done synthesizing module 'map' (12#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:68]
-INFO: [Synth 8-6155] done synthesizing module 'map4' (13#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:58]
-INFO: [Synth 8-6155] done synthesizing module 'top' (14#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:95]
+INFO: [Synth 8-6155] done synthesizing module 'map' (13#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'map4' (14#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'top' (15#1) [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:95]
 WARNING: [Synth 8-3331] design memory_controller has unconnected port R_out_adress[15]
 WARNING: [Synth 8-3331] design memory_controller has unconnected port R_out_adress[14]
 WARNING: [Synth 8-3331] design memory_controller has unconnected port R_out_adress[13]
@@ -87,7 +93,7 @@ WARNING: [Synth 8-3331] design fetch_unit has unconnected port PC_out[13]
 WARNING: [Synth 8-3331] design fetch_unit has unconnected port PC_out[12]
 WARNING: [Synth 8-3331] design memory has unconnected port reset
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 875.363 ; gain = 243.801
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 874.121 ; gain = 242.551
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -100,46 +106,52 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 875.363 ; gain = 243.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 874.121 ; gain = 242.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 875.363 ; gain = 243.801
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 874.121 ; gain = 242.551
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc:215]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc:215]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc:216]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc:216]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/constrs_1/new/Nexys-A7-100T-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1004.258 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1005.660 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1004.258 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1005.660 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1004.258 ; gain = 372.695
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1005.660 ; gain = 374.090
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1004.258 ; gain = 372.695
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1005.660 ; gain = 374.090
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1004.258 ; gain = 372.695
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1005.660 ; gain = 374.090
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/new/ALU.v:30]
-WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:138]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [C:/Users/bupochen/EC551/Lab1/Lab1.srcs/sources_1/imports/vga.v:139]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1004.258 ; gain = 372.695
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1005.660 ; gain = 374.090
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -163,11 +175,11 @@ Detailed RTL Component Info :
 +---Registers : 
 	               16 Bit    Registers := 7     
 	               11 Bit    Registers := 3     
-	                1 Bit    Registers := 6     
+	                1 Bit    Registers := 7     
 +---ROMs : 
 	                              ROMs := 1     
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 4     
 	   4 Input     16 Bit        Muxes := 2     
 	  16 Input     16 Bit        Muxes := 6     
 	   5 Input     16 Bit        Muxes := 1     
@@ -234,11 +246,15 @@ Detailed RTL Component Info :
 +---Muxes : 
 	  16 Input     16 Bit        Muxes := 6     
 	   5 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 3     
 	  16 Input      3 Bit        Muxes := 1     
 	  16 Input      2 Bit        Muxes := 1     
 	  16 Input      1 Bit        Muxes := 5     
 Module CPU 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module CPU_wrapper 
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 1     
@@ -264,20 +280,20 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[0]__0' (FDS) to 'epyc/PC/q_reg[0]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[1]' (FDS) to 'epyc/PC/q_reg[1]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[2]' (FDS) to 'epyc/PC/q_reg[2]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[3]' (FDS) to 'epyc/PC/q_reg[3]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[4]' (FDS) to 'epyc/PC/q_reg[4]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[5]' (FDR) to 'epyc/PC/q_reg[5]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[6]' (FDR) to 'epyc/PC/q_reg[6]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[7]' (FDR) to 'epyc/PC/q_reg[7]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[8]' (FDR) to 'epyc/PC/q_reg[8]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[9]' (FDR) to 'epyc/PC/q_reg[9]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[10]' (FDR) to 'epyc/PC/q_reg[10]'
-INFO: [Synth 8-3886] merging instance 'epyc/PC/q_reg_rep[11]' (FDR) to 'epyc/PC/q_reg[11]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[0]__0' (FDS) to 'epyc/epyc/PC/q_reg[0]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[1]' (FDS) to 'epyc/epyc/PC/q_reg[1]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[2]' (FDS) to 'epyc/epyc/PC/q_reg[2]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[3]' (FDS) to 'epyc/epyc/PC/q_reg[3]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[4]' (FDS) to 'epyc/epyc/PC/q_reg[4]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[5]' (FDR) to 'epyc/epyc/PC/q_reg[5]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[6]' (FDR) to 'epyc/epyc/PC/q_reg[6]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[7]' (FDR) to 'epyc/epyc/PC/q_reg[7]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[8]' (FDR) to 'epyc/epyc/PC/q_reg[8]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[9]' (FDR) to 'epyc/epyc/PC/q_reg[9]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[10]' (FDR) to 'epyc/epyc/PC/q_reg[10]'
+INFO: [Synth 8-3886] merging instance 'epyc/epyc/PC/q_reg_rep[11]' (FDR) to 'epyc/epyc/PC/q_reg[11]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -287,22 +303,22 @@ ROM:
 +------------+------------------------------+---------------+----------------+
 |Module Name | RTL Object                   | Depth x Width | Implemented As | 
 +------------+------------------------------+---------------+----------------+
-|top         | nolabel_line138/addr_reg_reg | 2048x8        | Block RAM      | 
+|top         | nolabel_line139/addr_reg_reg | 2048x8        | Block RAM      | 
 +------------+------------------------------+---------------+----------------+
 
 
 Distributed RAM: Preliminary Mapping  Report (see note below)
-+------------+-------------+-----------+----------------------+-------------------+
-|Module Name | RTL Object  | Inference | Size (Depth x Width) | Primitives        | 
-+------------+-------------+-----------+----------------------+-------------------+
-|epyc        | mem/mem_reg | Implied   | 4 K x 16             | RAM128X1D x 512   | 
-+------------+-------------+-----------+----------------------+-------------------+
++------------+------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object       | Inference | Size (Depth x Width) | Primitives        | 
++------------+------------------+-----------+----------------------+-------------------+
+|epyc        | epyc/mem/mem_reg | Implied   | 4 K x 16             | RAM128X1D x 512   | 
++------------+------------------+-----------+----------------------+-------------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6837] The timing for the instance i_0/nolabel_line138/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/nolabel_line139/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -313,24 +329,24 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Distributed RAM: Final Mapping  Report
-+------------+-------------+-----------+----------------------+-------------------+
-|Module Name | RTL Object  | Inference | Size (Depth x Width) | Primitives        | 
-+------------+-------------+-----------+----------------------+-------------------+
-|epyc        | mem/mem_reg | Implied   | 4 K x 16             | RAM128X1D x 512   | 
-+------------+-------------+-----------+----------------------+-------------------+
++------------+------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object       | Inference | Size (Depth x Width) | Primitives        | 
++------------+------------------+-----------+----------------------+-------------------+
+|epyc        | epyc/mem/mem_reg | Implied   | 4 K x 16             | RAM128X1D x 512   | 
++------------+------------------+-----------+----------------------+-------------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
@@ -344,9 +360,9 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6837] The timing for the instance nolabel_line138/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance nolabel_line139/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -370,7 +386,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -383,7 +399,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -395,25 +411,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -432,94 +448,94 @@ Report Cell Usage:
 |1     |BUFG      |     2|
 |2     |CARRY4    |     8|
 |3     |LUT1      |     4|
-|4     |LUT2      |   200|
-|5     |LUT3      |    92|
-|6     |LUT4      |    93|
-|7     |LUT5      |   280|
-|8     |LUT6      |   650|
+|4     |LUT2      |   251|
+|5     |LUT3      |    51|
+|6     |LUT4      |   103|
+|7     |LUT5      |   243|
+|8     |LUT6      |   612|
 |9     |MUXF7     |   128|
-|10    |MUXF8     |     2|
-|11    |RAM128X1D |   512|
-|12    |RAMB18E1  |     1|
-|13    |FDRE      |   164|
-|14    |FDSE      |    75|
-|15    |LD        |    11|
-|16    |IBUF      |     3|
-|17    |OBUF      |    14|
+|10    |RAM128X1D |   512|
+|11    |RAMB18E1  |     1|
+|12    |FDRE      |   165|
+|13    |FDSE      |    76|
+|14    |LD        |    11|
+|15    |IBUF      |     4|
+|16    |OBUF      |    30|
 +------+----------+------+
 
 Report Instance Areas: 
-+------+----------------------+-------------------------+------+
-|      |Instance              |Module                   |Cells |
-+------+----------------------+-------------------------+------+
-|1     |top                   |                         |  2239|
-|2     |  PC                  |map4                     |     4|
-|3     |    \genblk1[1].map0  |map_30                   |     4|
-|4     |  R0                  |map4_0                   |     4|
-|5     |    \genblk1[1].map0  |map_27                   |     2|
-|6     |    \genblk1[2].map0  |map_28                   |     1|
-|7     |    \genblk1[3].map0  |map_29                   |     1|
-|8     |  R1                  |map4_1                   |     6|
-|9     |    \genblk1[0].map0  |map_24                   |     1|
-|10    |    \genblk1[2].map0  |map_25                   |     4|
-|11    |    \genblk1[3].map0  |map_26                   |     1|
-|12    |  R2                  |map4_2                   |     9|
-|13    |    \genblk1[0].map0  |map_20                   |     1|
-|14    |    \genblk1[1].map0  |map_21                   |     3|
-|15    |    \genblk1[2].map0  |map_22                   |     2|
-|16    |    \genblk1[3].map0  |map_23                   |     3|
-|17    |  R3                  |map4_3                   |     4|
-|18    |    \genblk1[1].map0  |map_17                   |     1|
-|19    |    \genblk1[2].map0  |map_18                   |     1|
-|20    |    \genblk1[3].map0  |map_19                   |     2|
-|21    |  R4                  |map4_4                   |     7|
-|22    |    \genblk1[0].map0  |map_13                   |     1|
-|23    |    \genblk1[1].map0  |map_14                   |     2|
-|24    |    \genblk1[2].map0  |map_15                   |     2|
-|25    |    \genblk1[3].map0  |map_16                   |     2|
-|26    |  R5                  |map4_5                   |     6|
-|27    |    \genblk1[0].map0  |map                      |     2|
-|28    |    \genblk1[1].map0  |map_11                   |     3|
-|29    |    \genblk1[3].map0  |map_12                   |     1|
-|30    |  epyc                |CPU                      |  1847|
-|31    |    PC                |register__parameterized0 |   567|
-|32    |    alu               |ALU                      |    10|
-|33    |    controller        |control                  |     4|
-|34    |    mem               |memory                   |   908|
-|35    |    registers         |register_file            |   357|
-|36    |      \genblk1[0].R   |register                 |    41|
-|37    |      \genblk1[1].R   |register_6               |    33|
-|38    |      \genblk1[2].R   |register_7               |    35|
-|39    |      \genblk1[3].R   |register_8               |   111|
-|40    |      \genblk1[4].R   |register_9               |    75|
-|41    |      \genblk1[5].R   |register_10              |    62|
-|42    |  nolabel_line138     |font_rom                 |     5|
-|43    |  vga_controller      |vga_controller_640_60    |   313|
-+------+----------------------+-------------------------+------+
++------+-----------------------+-------------------------+------+
+|      |Instance               |Module                   |Cells |
++------+-----------------------+-------------------------+------+
+|1     |top                    |                         |  2201|
+|2     |  PC                   |map4                     |     4|
+|3     |    \genblk1[1].map0   |map_30                   |     4|
+|4     |  R0                   |map4_0                   |     4|
+|5     |    \genblk1[1].map0   |map_27                   |     2|
+|6     |    \genblk1[2].map0   |map_28                   |     1|
+|7     |    \genblk1[3].map0   |map_29                   |     1|
+|8     |  R1                   |map4_1                   |     6|
+|9     |    \genblk1[0].map0   |map_24                   |     1|
+|10    |    \genblk1[2].map0   |map_25                   |     4|
+|11    |    \genblk1[3].map0   |map_26                   |     1|
+|12    |  R2                   |map4_2                   |     9|
+|13    |    \genblk1[0].map0   |map_20                   |     1|
+|14    |    \genblk1[1].map0   |map_21                   |     3|
+|15    |    \genblk1[2].map0   |map_22                   |     2|
+|16    |    \genblk1[3].map0   |map_23                   |     3|
+|17    |  R3                   |map4_3                   |     4|
+|18    |    \genblk1[1].map0   |map_17                   |     1|
+|19    |    \genblk1[2].map0   |map_18                   |     1|
+|20    |    \genblk1[3].map0   |map_19                   |     2|
+|21    |  R4                   |map4_4                   |     7|
+|22    |    \genblk1[0].map0   |map_13                   |     1|
+|23    |    \genblk1[1].map0   |map_14                   |     2|
+|24    |    \genblk1[2].map0   |map_15                   |     2|
+|25    |    \genblk1[3].map0   |map_16                   |     2|
+|26    |  R5                   |map4_5                   |     6|
+|27    |    \genblk1[0].map0   |map                      |     2|
+|28    |    \genblk1[1].map0   |map_11                   |     3|
+|29    |    \genblk1[3].map0   |map_12                   |     1|
+|30    |  epyc                 |CPU_wrapper              |  1792|
+|31    |    epyc               |CPU                      |  1791|
+|32    |      PC               |register__parameterized0 |   320|
+|33    |      alu              |ALU                      |    12|
+|34    |      controller       |control                  |     4|
+|35    |      mem              |memory                   |   992|
+|36    |      registers        |register_file            |   462|
+|37    |        \genblk1[0].R  |register                 |    41|
+|38    |        \genblk1[1].R  |register_6               |    32|
+|39    |        \genblk1[2].R  |register_7               |    35|
+|40    |        \genblk1[3].R  |register_8               |    82|
+|41    |        \genblk1[4].R  |register_9               |   238|
+|42    |        \genblk1[5].R  |register_10              |    34|
+|43    |  nolabel_line139      |font_rom                 |     5|
+|44    |  vga_controller       |vga_controller_640_60    |   313|
++------+-----------------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1096.125 ; gain = 335.668
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1096.125 ; gain = 464.563
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 1097.898 ; gain = 334.789
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1097.898 ; gain = 466.328
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 662 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 660 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1096.125 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1097.898 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 523 instances were transformed.
   LD => LDCE: 11 instances
   RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, MUXF7, MUXF7, RAMD64E, RAMD64E): 512 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-57 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
+60 Infos, 12 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 1096.125 ; gain = 742.496
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1096.125 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1097.898 ; gain = 743.875
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1097.898 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/bupochen/EC551/Lab1/Lab1.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Oct 21 20:59:01 2022...
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 21 21:30:03 2022...
