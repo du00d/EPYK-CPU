@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="7731fs"></ZoomEndTime>
+      <ZoomEndTime time="76300001fs"></ZoomEndTime>
       <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="136"></NameColumnWidth>
-      <ValueColumnWidth column_width="122"></ValueColumnWidth>
+      <ValueColumnWidth column_width="118"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/cpu_testbench/clock" type="logic">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
@@ -43,42 +43,42 @@
       <obj_property name="ElementShortName">[5][15:0]</obj_property>
       <obj_property name="ObjectShortName">[5][15:0]</obj_property>
       <obj_property name="label">R5</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_testbench/R[4]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[4][15:0]</obj_property>
       <obj_property name="ObjectShortName">[4][15:0]</obj_property>
       <obj_property name="label">R4</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_testbench/R[3]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[3][15:0]</obj_property>
       <obj_property name="ObjectShortName">[3][15:0]</obj_property>
       <obj_property name="label">R3</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_testbench/R[2]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[2][15:0]</obj_property>
       <obj_property name="ObjectShortName">[2][15:0]</obj_property>
       <obj_property name="label">R2</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_testbench/R[1]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[1][15:0]</obj_property>
       <obj_property name="ObjectShortName">[1][15:0]</obj_property>
       <obj_property name="label">R1</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_testbench/R[0]" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[0][15:0]</obj_property>
       <obj_property name="ObjectShortName">[0][15:0]</obj_property>
       <obj_property name="label">R0</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_testbench/cpu/alu/A" type="array">
       <obj_property name="ElementShortName">A[15:0]</obj_property>
@@ -113,5 +113,17 @@
       <obj_property name="ElementShortName">mem[0:4095][0:15]</obj_property>
       <obj_property name="ObjectShortName">mem[0:4095][0:15]</obj_property>
       <obj_property name="Reversed">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_testbench/cpu/controller/r_in_data" type="array">
+      <obj_property name="ElementShortName">r_in_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_in_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_testbench/cpu/controller/r_out_data" type="array">
+      <obj_property name="ElementShortName">r_out_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_out_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_testbench/cpu/controller/r_out_address" type="array">
+      <obj_property name="ElementShortName">r_out_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_out_address[15:0]</obj_property>
    </wvobject>
 </wave_config>
