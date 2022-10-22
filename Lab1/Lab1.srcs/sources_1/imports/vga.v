@@ -91,7 +91,7 @@ module map(
     end
 endmodule
 module hex7seg(
-    input wire [2:0] x,
+    input wire [3:0] x,
     output reg [6:0] out
 );
 always @(*)
@@ -101,6 +101,20 @@ case(x)
 1:   out = 7'b1000111;
 2:   out = 7'b0010010;
 3:   out = 7'b0000110;
+4:   out = 7'b1001100;
+5:   out = 7'b0100100;
+6:   out = 7'b0100010;
+7:   out = 7'b0001111;
+8:   out = 7'b0000000;
+9:   out = 7'b1000100;
+'hA: out = 7'b0001000;
+'hB: out = 7'b1100000;
+'hC: out = 7'b0110001;
+'hD: out = 7'b1000010;
+'hE: out = 7'b0110000;
+'hF: out = 7'b01110000;
+
+
 default out = 7'b0000001;
 endcase
 end
@@ -118,7 +132,7 @@ module top(
     output wire VGA_VS,
     output wire [15:0] PC_out,
     output wire [6:0] LED_out,
-    output reg [3:0] AN,
+    output wire [7:0] AN,
     output wire DP
     );
 
@@ -173,26 +187,13 @@ map4 R4 (R[79:64], hexiesR4);
 map4 R5 (R[95:80], hexiesR5);
 map4 PC (PC_out, pcouts);
 
+hex7seg SEGMENT(pcouts[3:0], LED_out);
+assign AN = 8'b11111110;
 assign DP = 1;
-reg [1:0] i = 0;
-hex7seg SEGMENT(i, LED_out);
 
-always @(posedge CLK100MHZ)begin
-i = ( i + 1 );
-if (i > 3) begin
-i = 0;
-end
-end
+
 
 always @(*) begin
-
-
-    case(i)
-    0: AN = 4'b1110;
-    1: AN = 4'b1101;
-    2: AN = 4'b1011;
-    3: AN = 4'b0111;
-    endcase
 
     
     // Set pixels to black during Sync. Failure to do so will result in dimmed colors or black screens.
