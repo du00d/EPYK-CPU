@@ -49,7 +49,7 @@ module CPU_wrapper#(
         fake_clock <= user_clock;
       
     CPU epyc(fake_clock,reset,continue,PC_out,R_allout);
-    defparam epyc.MEM_INIT_FILE="C:/Users/bupochen/EC551/Lab1/meminit.txt"; 
+    defparam epyc.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt"; 
 endmodule
 module CPU#(
     parameter DATA_SIZE = 16,
