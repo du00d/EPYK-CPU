@@ -23,10 +23,10 @@
 module cpu_testbench(
 
     );
-    reg clock,reset;
+    reg clock,reset,continue;
     wire [16-1:0] PC_out;
     wire [16*6-1:0] R_allout;
-    CPU cpu(clock,reset,PC_out,R_allout);
+    CPU cpu(clock,reset,continue,PC_out,R_allout);
     wire [16-1:0] R [5:0];
     assign R[5] = R_allout[16*6-1:16*5];
     assign R[4] = R_allout[16*5-1:16*4];
@@ -35,10 +35,12 @@ module cpu_testbench(
     assign R[1] = R_allout[16*2-1:16*1];
     assign R[0] = R_allout[16*1-1:16*0];
     
-    defparam cpu.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt";    
+//    defparam cpu.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt";    
+    defparam cpu.MEM_INIT_FILE="X:/EC551/Lab1/testspecial.txt";    
     
     initial begin
     clock=0;
+    continue=0;
     #10 reset=1;
     #10 reset=0;
     #1000 $finish;
