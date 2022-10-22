@@ -19,7 +19,38 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+module topCPU#(
+    parameter DATA_SIZE = 16,
+    parameter ADDRESS_LENGTH = 12,
+    parameter MEM_INIT_FILE = ""
+    )(input sys_clock,user_clock,reset,
+      output [DATA_SIZE-1:0] PC_out/*,*/
+      /*output [DATA_SIZE*6-1:0] R_allout*/);
+      
+      reg fake_clock;
+      
+      always@(posedge sys_clock)
+        fake_clock <= user_clock;
+      
+    CPU epyc(fake_clock,reset,PC_out,/*R_allout*/);
+    defparam epyc.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt"; 
+endmodule
+module CPU_wrapper#(
+    parameter DATA_SIZE = 16,
+    parameter ADDRESS_LENGTH = 12,
+    parameter MEM_INIT_FILE = ""
+    )(input sys_clock,user_clock,reset,
+      output [DATA_SIZE-1:0] PC_out,
+      output [DATA_SIZE*6-1:0] R_allout);
+      
+      reg fake_clock;
+      
+      always@(posedge sys_clock)
+        fake_clock <= user_clock;
+      
+    CPU epyc(fake_clock,reset,PC_out,R_allout);
+    defparam epyc.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt"; 
+endmodule
 module CPU#(
     parameter DATA_SIZE = 16,
     parameter ADDRESS_LENGTH = 12,

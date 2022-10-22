@@ -35,7 +35,7 @@ module cpu_testbench(
     assign R[1] = R_allout[16*2-1:16*1];
     assign R[0] = R_allout[16*1-1:16*0];
     
-    defparam cpu.MEM_INIT_FILE="meminit.txt";    
+    defparam cpu.MEM_INIT_FILE="X:/EC551/Lab1/meminit.txt";    
     
     initial begin
     clock=0;
