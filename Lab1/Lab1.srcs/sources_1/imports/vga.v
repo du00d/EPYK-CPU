@@ -90,7 +90,21 @@ module map(
     endcase
     end
 endmodule
-
+module hex7seg(
+    input wire [2:0] x,
+    output reg [6:0] out
+);
+always @(*)
+begin
+case(x)
+0:   out = 7'b0000001;
+1:   out = 7'b1000111;
+2:   out = 7'b0010010;
+3:   out = 7'b0000110;
+default out = 7'b0000001;
+endcase
+end
+endmodule
 // top module that instantiate the VGA controller and generate images
 module top(
     input wire CLK100MHZ,
@@ -102,7 +116,10 @@ module top(
     output reg [3:0] VGA_B,
     output wire VGA_HS,
     output wire VGA_VS,
-    output wire [15:0] PC_out
+    output wire [15:0] PC_out,
+    output wire [6:0] LED_out,
+    output reg [3:0] AN,
+    output wire DP
     );
 
 reg pclk_div_cnt;
@@ -156,7 +173,28 @@ map4 R4 (R[79:64], hexiesR4);
 map4 R5 (R[95:80], hexiesR5);
 map4 PC (PC_out, pcouts);
 
+assign DP = 1;
+reg [1:0] i = 0;
+hex7seg SEGMENT(i, LED_out);
+
+always @(posedge CLK100MHZ)begin
+i = ( i + 1 );
+if (i > 3) begin
+i = 0;
+end
+end
+
 always @(*) begin
+
+
+    case(i)
+    0: AN = 4'b1110;
+    1: AN = 4'b1101;
+    2: AN = 4'b1011;
+    3: AN = 4'b0111;
+    endcase
+
+    
     // Set pixels to black during Sync. Failure to do so will result in dimmed colors or black screens.
     if (vga_blank) begin 
         VGA_R = 0;
